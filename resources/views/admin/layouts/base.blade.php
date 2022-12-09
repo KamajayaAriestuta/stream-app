@@ -62,7 +62,6 @@
     </section>
     <!-- /.content -->
   </div>
-
   {{-- footer here --}}
   @include('admin.layouts.footer')
 
