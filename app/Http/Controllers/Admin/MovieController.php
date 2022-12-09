@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
   
 
 class MovieController extends Controller
@@ -24,17 +25,28 @@ class MovieController extends Controller
 
         $request->validate([
             'title' => 'required|string',
-            'small_thumbnail' => 'required|image|mimes:jpg, jpeg, png', 
-            'large_thumbnail' => 'required|image|mimes:jpg, jpeg, png', 
+            'small_thumbnail' => 'required|image|mimes:jpg,jpeg,png', 
+            'large_thumbnail' => 'required|image|mimes:jpg,jpeg,png', 
             'trailer' => 'required|url',
             'movie' => 'required|url',
             'casts' => 'required|string',
             'categories' => 'required|string',
-            'realese_date' => 'required|string',
+            'release_date' => 'required|string',
             'about' => 'required|string',
-            'short-about' => 'required|string',
+            'short_about' => 'required|string',
             'duration' => 'required|string',
             'featured' => 'required'
         ]);
+
+        $smallThumbnail = $request->small_thumbnail;
+        $largeThumbnail = $request->large_thumbnail;
+
+        $originalSmallThumbnailName= Str::random(10).$smallThumbnail->getClientOriginalName();
+        $originalLargeThumbnailName= Str::random(10).$largeThumbnail->getClientOriginalName();
+
+        $smallThumbnail->storeAs('public/thumbnail', $originalSmallThumbnailName);
+        $largeThumbnail->storeAs('public/thumbnail', $originalLargeThumbnailName);
+
+        dd($originalLargeThumbnailName);
     }
 } 
