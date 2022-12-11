@@ -20,7 +20,7 @@ class Movie extends Model
         'categories',
         'small_thumbnail',
         'large_thumbnail',
-        'realese_date',
+        'release_date',
         'about',
         'short_about',
         'duration',
