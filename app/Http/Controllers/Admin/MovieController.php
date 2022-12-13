@@ -26,7 +26,6 @@ class MovieController extends Controller
         $movie = Movie::find($id);
         return view('admin.movie-edit', ['movie' => $movie]);
     }
-
     public function store(Request $request)
     {
         $data = $request->except('_token');
@@ -106,5 +105,9 @@ class MovieController extends Controller
 
         $movie->update($data);
         return redirect()->route('admin.movies')->with('success', 'sucess updated');
+    }
+    public function destroy($id){
+        Movie::find($id)->delete();
+        return redirect()->route('admin.movies')->with('success', 'movie deleted');
     }
 }
