@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\LoginController;
 */
 
 Route::get('admin/login', [LoginController::class, 'index'])->name('admin.login');
+Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admin.login.auth');
 
 Route::group(['prefix' => 'admin'], function(){
     Route::view('/', 'admin.dashboard')->name('admin.dashboard');
