@@ -30,4 +30,10 @@ class LoginController extends Controller
             'error' => 'Your credentials are Wrong'
         ])->withInput();
     }
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('admin.login');
+    }
 }
