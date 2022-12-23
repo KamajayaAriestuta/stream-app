@@ -1,7 +1,7 @@
 <aside class="fixed z-50 w-[360px] bg-stream-dark">
     <div class="flex flex-col p-12 border-r border-softpur overflow-y-auto h-screen">
         <a href="/">
-            <img src="{{ ('stream/assets/images/stream.svg') }}" alt="">
+            <img src="{{ asset('stream/assets/images/stream.svg') }}" alt="">
         </a>
         <div class="links flex flex-col mt-16 gap-2">
             <a href="{{ route('member.dashboard') }}" class="side-link active">
@@ -91,7 +91,7 @@
                 </svg>
                 Account Settings
             </a>
-            <a href="!#" class="side-link">
+            <a href="{{ route('member.logout')}}" class="side-link">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
