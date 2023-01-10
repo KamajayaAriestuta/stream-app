@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_premiums', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('package_id')->constrained('packages_tables');
+            $table->foreignId('package_id')->constrained('packages');
             $table->foreignId('user_id')->constrained('users');
-            $table->date('end_of_subscription');
+            $table->float('amount');
+            $table->string('transaction_code');
+            $table->string('status');
             $table->timestamps();
-
         });
     }
 
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_premiums');
+        Schema::dropIfExists('transactions');
     }
 };

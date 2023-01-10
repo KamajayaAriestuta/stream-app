@@ -18,7 +18,6 @@ class TransactionController extends Controller
             'package_id' => $package->id,
             'user_id' => $customer->id,
             'amount' => $package->price,
-            'package_id' => $package->id,
             'transaction_code' => strtoupper(Str::random(10)),
             'status' => 'pending',
         ]);

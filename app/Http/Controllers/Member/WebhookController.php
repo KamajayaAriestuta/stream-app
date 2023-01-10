@@ -18,7 +18,7 @@ class WebhookController extends Controller
         $notif = new \Midtrans\Notification();
 
         $transactionStatus = $notif->transaction_status;
-        $transaction_code = $notif->order_id;
+        $transactionCode = $notif->order_id;
         $fraudStatus = $notif->fraud_status;
 
         $status = '';
@@ -40,7 +40,7 @@ class WebhookController extends Controller
             }
 
             $transaction = Transaction::with('package')
-            ->where('transaction_code', $transaction_code)
+            ->where('transaction_code', $transactionCode)
             ->first();
 
             if ($status === 'success'){
@@ -52,7 +52,7 @@ class WebhookController extends Controller
                     $newEndOfSubscription = $date->addDays($transaction->package->max_days)->format('Y-m-d');
 
                     $userPremium->update([
-                        'package_id' => $transaction->package->id,
+                        'package_id' => $transaction->package_id,
                         'end_of_subscription' => $newEndOfSubscription
                     ]);
                 }else{
