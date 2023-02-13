@@ -21,6 +21,7 @@ class WebhookController extends Controller
         $transactionCode = $notif->order_id;
         $fraudStatus = $notif->fraud_status;
 
+
         $status = '';
 
         if ($transactionStatus == 'capture'){
