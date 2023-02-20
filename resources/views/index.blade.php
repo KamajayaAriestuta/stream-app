@@ -27,7 +27,7 @@
     </style>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.10.2/video-js.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/videojs.css">
+    <link rel="stylesheet" href="{{ asset('stream/assets/css/videojs.css') }}">
 
 </head>
 
@@ -63,7 +63,7 @@
                         <div class="flex flex-col w-full font-normal lg:w-auto lg:gap-12 lg:items-center lg:flex-row">
                             <a href="#!" class="nav-link-item">Genre</a>
                             <a href="#!" class="nav-link-item">Featured</a>
-                            <a href="{{ route('pricing')}}" class="nav-link-item">Pricing</a>
+                            <a href="{{ route('pricing') }}" class="nav-link-item">Pricing</a>
                         </div>
                         <a href="/" class="hidden lg:block -ml-36">
                             <img src="{{ asset('stream/assets/images/stream.svg') }}" alt="stream" />
@@ -90,7 +90,7 @@
                 Everything you need to entertain yourself and <br class="hidden lg:block" />
                 your family from anywhere you are
             </p>
-            <a href="{{ route('member.register')}}" class="mt-5 rounded-full bg-indigo-600 text-center py-3 px-11">
+            <a href="{{ route('member.register') }}" class="mt-5 rounded-full bg-indigo-600 text-center py-3 px-11">
                 <span class="text-white font-semibold text-base">Get Started</span>
             </a>
         </section>
